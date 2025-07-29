@@ -1,5 +1,4 @@
 German AI Voice Trainer 🇩🇪🤖
-
 A full-stack web application designed to help users master German pronunciation through AI-powered feedback. This project demonstrates the rapid integration of a Python backend with a React frontend to create a modern, interactive learning tool.
 
 ✨ Features
