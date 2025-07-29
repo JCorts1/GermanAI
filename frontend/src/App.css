@@ -1,0 +1,517 @@
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .app-container {
+    min-height: 100vh;
+    background: #0a0a0a;
+    color: #ffffff;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Animated background */
+  .animated-bg {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+  }
+
+  .gradient-orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.5;
+    animation: float 20s infinite;
+  }
+
+  .gradient-1 {
+    width: 600px;
+    height: 600px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    top: -200px;
+    left: -200px;
+    animation-delay: 0s;
+  }
+
+  .gradient-2 {
+    width: 500px;
+    height: 500px;
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    bottom: -150px;
+    right: -150px;
+    animation-delay: 5s;
+  }
+
+  .gradient-3 {
+    width: 400px;
+    height: 400px;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation-delay: 10s;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    33% {
+      transform: translate(30px, -30px) scale(1.1);
+    }
+    66% {
+      transform: translate(-20px, 20px) scale(0.9);
+    }
+  }
+
+  .content-wrapper {
+    position: relative;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeInDown 0.8s ease-out;
+  }
+
+  .header-content {
+    display: inline-block;
+    position: relative;
+  }
+
+  .logo-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .logo-icon {
+    width: 48px;
+    height: 48px;
+    color: #00f2fe;
+    filter: drop-shadow(0 0 20px rgba(0, 242, 254, 0.5));
+  }
+
+  .app-title {
+    font-size: 3rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .sparkle-icon {
+    width: 32px;
+    height: 32px;
+    color: #f093fb;
+    animation: sparkle 2s infinite;
+  }
+
+  @keyframes sparkle {
+    0%, 100% {
+      opacity: 1;
+      transform: scale(1) rotate(0deg);
+    }
+    50% {
+      opacity: 0.5;
+      transform: scale(1.2) rotate(180deg);
+    }
+  }
+
+  .app-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 1.125rem;
+  }
+
+  /* Glass cards */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.8s ease-out;
+  }
+
+  .card-glow {
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+    border-radius: 24px;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s ease;
+  }
+
+  .glass-card:hover .card-glow {
+    opacity: 0.1;
+  }
+
+  /* Recording card */
+  .recording-card {
+    text-align: center;
+  }
+
+  .recording-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .mic-wrapper {
+    position: relative;
+    width: 150px;
+    height: 150px;
+  }
+
+  .mic-ring {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 3px;
+    transition: all 0.3s ease;
+  }
+
+  .mic-ring.recording {
+    animation: pulse-ring 2s infinite;
+  }
+
+  @keyframes pulse-ring {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  .mic-ring-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #0a0a0a;
+  }
+
+  .mic-button {
+    position: absolute;
+    inset: 20px;
+    border-radius: 50%;
+    border: none;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1;
+  }
+
+  .mic-button:hover {
+    transform: scale(1.05);
+  }
+
+  .mic-button.recording {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    animation: pulse 1.5s infinite;
+  }
+
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(240, 147, 251, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 20px rgba(240, 147, 251, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(240, 147, 251, 0);
+    }
+  }
+
+  .recording-status {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.125rem;
+  }
+
+  /* Transcription section */
+  .transcription-section {
+    margin-top: 2rem;
+    width: 100%;
+    animation: fadeIn 0.5s ease-out;
+  }
+
+  .transcription-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: #00f2fe;
+  }
+
+  .inline-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .transcription-box {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    min-height: 120px;
+    position: relative;
+  }
+
+  .transcription-text {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+  }
+
+  .pulse-indicator {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    gap: 4px;
+  }
+
+  .pulse-indicator span {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #00f2fe;
+    animation: pulse-dot 1.4s infinite ease-in-out both;
+  }
+
+  .pulse-indicator span:nth-child(1) {
+    animation-delay: -0.32s;
+  }
+
+  .pulse-indicator span:nth-child(2) {
+    animation-delay: -0.16s;
+  }
+
+  @keyframes pulse-dot {
+    0%, 80%, 100% {
+      transform: scale(0);
+      opacity: 0.5;
+    }
+    40% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  /* Recordings list */
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .recordings-count {
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: normal;
+  }
+
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .empty-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 1rem;
+    opacity: 0.3;
+  }
+
+  .recordings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .recording-item {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+
+  .recording-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .recording-info {
+    flex: 1;
+  }
+
+  .recording-date {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .recording-transcription {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .transcription-label {
+    color: #00f2fe;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .transcription-content {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.5;
+  }
+
+  .recording-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: 1rem;
+  }
+
+  .action-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .play-button:hover {
+    background: rgba(102, 126, 234, 0.2);
+    border-color: #667eea;
+  }
+
+  .play-button.playing {
+    background: rgba(102, 126, 234, 0.3);
+    border-color: #667eea;
+    animation: pulse 1.5s infinite;
+  }
+
+  .delete-button:hover {
+    background: rgba(245, 87, 108, 0.2);
+    border-color: #f5576c;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.875rem;
+  }
+
+  .tech-note {
+    margin-top: 0.5rem;
+    font-size: 0.75rem;
+    opacity: 0.7;
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .app-title {
+      font-size: 2rem;
+    }
+
+    .content-wrapper {
+      padding: 1rem;
+    }
+
+    .glass-card {
+      padding: 1.5rem;
+    }
+
+    .recording-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .recording-actions {
+      margin-left: 0;
+    }
+  }
