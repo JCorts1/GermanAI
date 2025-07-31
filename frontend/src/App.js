@@ -12,7 +12,6 @@ const App = () => {
   const audioChunksRef = useRef([]);
   const recognitionRef = useRef(null);
 
-  // Initialize speech recognition
   useEffect(() => {
     if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
       const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -47,7 +46,6 @@ const App = () => {
     }
   }, []);
 
-  // Fetch recordings on mount
   useEffect(() => {
     fetchRecordings();
   }, []);
@@ -192,7 +190,6 @@ const App = () => {
       </div>
 
       <div className="content-wrapper">
-        {/* Header */}
         <header className="header">
           <div className="header-content">
             <div className="logo-section">
@@ -206,7 +203,6 @@ const App = () => {
           </div>
         </header>
 
-        {/* Recording Section */}
         <div className="glass-card recording-card">
           <div className="card-glow"></div>
           <div className="recording-content">

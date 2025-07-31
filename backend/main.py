@@ -10,7 +10,7 @@ import base64
 
 app = FastAPI()
 
-# Enable CORS for React frontend
+# CORS!!!!
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["http://localhost:3000"],
@@ -56,7 +56,7 @@ def read_root():
 
 @app.post("/api/recordings")
 async def upload_recording(file: UploadFile = File(...)):
-    # Save the audio file
+
     timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
     filename = f"recording_{timestamp}.webm"
     filepath = os.path.join("uploads", filename)
@@ -127,14 +127,12 @@ def delete_recording(recording_id: int):
     conn = sqlite3.connect('recordings.db')
     c = conn.cursor()
 
-    # Get filename first
     c.execute("SELECT filename FROM recordings WHERE id = ?", (recording_id,))
     result = c.fetchone()
 
     if not result:
         raise HTTPException(status_code=404, detail="Recording not found")
 
-    # Delete file
     filepath = os.path.join("uploads", result[0])
     if os.path.exists(filepath):
         os.remove(filepath)
