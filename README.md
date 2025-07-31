@@ -15,3 +15,5 @@ A full-stack web application designed to help users master German pronunciation 
 
 🛠️ Tech Stack
 The application uses a Python backend to serve a RESTful API, which is consumed by a React frontend. This demonstrates a modern, decoupled full-stack architecture.
+
+<img src="./assets/screenshot.png" alt="App Screenshot" width="400"/>
